@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://566ubha4l67a"]
+
+[ext_resource type="Script" path="res://scene/main_root.cs" id="1_iqmdx"]
+[ext_resource type="PackedScene" uid="uid://ddsj74hpt1kgb" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_physics_tac_glove.tscn" id="2_pxxag"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/functions/function_pickup.gd" id="3_1lewo"]
+[ext_resource type="PackedScene" uid="uid://b6xesntm4qeo5" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_physics_tac_glove.tscn" id="4_e567n"]
+[ext_resource type="PackedScene" uid="uid://pvjs74eucr4g" path="res://scene/game.tscn" id="5_7dyt0"]
+
+[node name="root" type="Node3D"]
+script = ExtResource("1_iqmdx")
+
+[node name="xr" type="XROrigin3D" parent="."]
+
+[node name="xr_cam" type="XRCamera3D" parent="xr"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="xr_left" type="XRController3D" parent="xr"]
+tracker = &"left_hand"
+
+[node name="xr_left_hand" parent="xr/xr_left" instance=ExtResource("2_pxxag")]
+collision_layer = 131080
+
+[node name="xr_left_pickup" type="Node3D" parent="xr/xr_left/xr_left_hand"]
+script = ExtResource("3_1lewo")
+grab_distance = 0.1
+grab_collision_mask = 262146
+ranged_enable = false
+
+[node name="xr_right" type="XRController3D" parent="xr"]
+tracker = &"right_hand"
+
+[node name="xr_right_hand" parent="xr/xr_right" instance=ExtResource("4_e567n")]
+collision_layer = 131080
+
+[node name="xr_right_pickup" type="Node3D" parent="xr/xr_right"]
+script = ExtResource("3_1lewo")
+grab_distance = 0.1
+grab_collision_mask = 262146
+ranged_enable = false
+
+[node name="game" parent="." instance=ExtResource("5_7dyt0")]
+
+[connection signal="SceneExit" from="game" to="." method="GameOver" flags=3]
