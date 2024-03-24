@@ -10,6 +10,6 @@ background_color = Color(0.18, 0.10554, 0.0486, 1)
 environment = SubResource("Environment_ihm5l")
 
 [node name="win_text" type="Label3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.75, -1)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.75, -1.5)
 text = "Thanks for playing"
 font_size = 64

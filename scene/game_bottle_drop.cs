@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class game_bottle : Node3D {
+public partial class game_bottle_drop : Node3D {
     [Signal]
     public delegate void DroppedEventHandler();
 

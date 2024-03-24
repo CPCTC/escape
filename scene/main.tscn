@@ -1,10 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://566ubha4l67a"]
+[gd_scene load_steps=15 format=3 uid="uid://566ubha4l67a"]
 
 [ext_resource type="Script" path="res://scene/main_root.cs" id="1_iqmdx"]
 [ext_resource type="PackedScene" uid="uid://ddsj74hpt1kgb" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_physics_tac_glove.tscn" id="2_pxxag"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/functions/function_pickup.gd" id="3_1lewo"]
 [ext_resource type="PackedScene" uid="uid://b6xesntm4qeo5" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_physics_tac_glove.tscn" id="4_e567n"]
-[ext_resource type="PackedScene" uid="uid://pvjs74eucr4g" path="res://scene/game.tscn" id="5_7dyt0"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="5_0wq2t"]
+[ext_resource type="Script" path="res://scene/game_bottle_drop.cs" id="6_o6m7v"]
+[ext_resource type="PackedScene" uid="uid://r8hukn1scsud" path="res://assets/Table.fbx" id="7_pdkbt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_phhho"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hhyni"]
+albedo_color = Color(0.278431, 0.494118, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qxgy3"]
+material = SubResource("StandardMaterial3D_hhyni")
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_78ctt"]
+size = Vector3(0.04, 0.0904102, 0.085)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7rtul"]
+size = Vector2(4, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ikk7o"]
+size = Vector3(2, 1, 2)
+
+[sub_resource type="Environment" id="Environment_qvacw"]
+background_mode = 1
+background_color = Color(0.752941, 0.45098, 0.2, 1)
 
 [node name="root" type="Node3D"]
 script = ExtResource("1_iqmdx")
@@ -12,7 +37,7 @@ script = ExtResource("1_iqmdx")
 [node name="xr" type="XROrigin3D" parent="."]
 
 [node name="xr_cam" type="XRCamera3D" parent="xr"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29554, 0)
 
 [node name="xr_left" type="XRController3D" parent="xr"]
 tracker = &"left_hand"
@@ -25,6 +50,7 @@ script = ExtResource("3_1lewo")
 grab_distance = 0.1
 grab_collision_mask = 262146
 ranged_enable = false
+impulse_factor = 0.5
 
 [node name="xr_right" type="XRController3D" parent="xr"]
 tracker = &"right_hand"
@@ -37,7 +63,46 @@ script = ExtResource("3_1lewo")
 grab_distance = 0.1
 grab_collision_mask = 262146
 ranged_enable = false
+impulse_factor = 0.5
 
-[node name="game" parent="." instance=ExtResource("5_7dyt0")]
+[node name="game" type="Node3D" parent="."]
 
-[connection signal="SceneExit" from="game" to="." method="GameOver" flags=3]
+[node name="bottle" type="RigidBody3D" parent="game"]
+transform = Transform3D(0.219846, 0, -0.975535, 0, 1, 0, 0.975535, 0, 0.219846, -0.62421, 0.868769, -1.10508)
+collision_layer = 2
+script = ExtResource("5_0wq2t")
+picked_up_layer = 65540
+ranged_grab_method = 0
+
+[node name="bottle_shape" type="CollisionShape3D" parent="game/bottle"]
+shape = SubResource("BoxShape3D_phhho")
+
+[node name="bottle_mesh" type="MeshInstance3D" parent="game/bottle"]
+mesh = SubResource("BoxMesh_qxgy3")
+skeleton = NodePath("")
+
+[node name="bottle_drop" type="Node3D" parent="game/bottle"]
+script = ExtResource("6_o6m7v")
+
+[node name="table" parent="game" instance=ExtResource("7_pdkbt")]
+transform = Transform3D(3.93211, 0, -17.3859, 0, 17.825, 0, 17.3859, 0, 3.93211, -2.32, 0.636, -0.75)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="game/table"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="game/table/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999991, 0, 0, 0, 1, -7.57724e-05, -0.044213, -0.0961774)
+shape = SubResource("BoxShape3D_78ctt")
+
+[node name="ground" type="StaticBody3D" parent="game"]
+
+[node name="ground_mesh" type="MeshInstance3D" parent="game/ground"]
+mesh = SubResource("PlaneMesh_7rtul")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="game/ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_ikk7o")
+
+[node name="skybox" type="WorldEnvironment" parent="game"]
+environment = SubResource("Environment_qvacw")
+
+[connection signal="Dropped" from="game/bottle/bottle_drop" to="." method="GameOver" flags=3]
