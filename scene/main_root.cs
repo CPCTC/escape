@@ -20,7 +20,7 @@ public partial class main_root : Node3D {
     // See the signal connection menu -> `Advanced` -> `Deferred`
     private void GameOver() {
         GetNode("game").Free();
-        AddChild(
+        GetNode("xr/xr_cam").AddChild(
             ResourceLoader.Load<PackedScene>("res://scene/gameover.tscn")
                 .Instantiate()
         );
