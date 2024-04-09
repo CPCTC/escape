@@ -22,17 +22,18 @@ albedo_color = Color(0.278431, 0.494118, 1, 1)
 material = SubResource("StandardMaterial3D_hhyni")
 size = Vector3(0.1, 0.1, 0.1)
 
-[sub_resource type="Environment" id="Environment_qvacw"]
-background_mode = 1
-background_color = Color(0.752941, 0.45098, 0.2, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_rn4da"]
+size = Vector3(7, 1, 20)
 
 [node name="root" type="Node3D"]
 script = ExtResource("1_iqmdx")
 
 [node name="xr" type="XROrigin3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.147488, 1.67674)
 
 [node name="xr_cam" type="XRCamera3D" parent="xr"]
-transform = Transform3D(0.882078, 0, -0.471104, 0, 1, 0, 0.471104, 0, 0.882078, -1.3681, 1.38333, 3.18367)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+fov = 141.258
 near = 0.01
 
 [node name="xr_body" parent="xr" instance=ExtResource("2_x34sn")]
@@ -87,8 +88,7 @@ skeleton = NodePath("")
 [node name="bottle_drop" type="Node3D" parent="game/bottle"]
 script = ExtResource("6_o6m7v")
 
-[node name="skybox" type="WorldEnvironment" parent="game"]
-environment = SubResource("Environment_qvacw")
+[node name="environment" type="WorldEnvironment" parent="game"]
 
 [node name="secret_gaffiti" type="Sprite3D" parent="game"]
 transform = Transform3D(0.115, 0, 0, 0, 0.115, 0, 0, 0, 0.115, -0.0199747, 0.527433, 0)
@@ -96,5 +96,13 @@ visible = false
 texture = ExtResource("8_plury")
 script = ExtResource("9_8xii6")
 
-[node name="Root Scene" parent="game" instance=ExtResource("11_tg7u6")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+[node name="room" parent="game" instance=ExtResource("11_tg7u6")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+
+[node name="floor" type="StaticBody3D" parent="game"]
+collision_layer = 17
+collision_mask = 0
+
+[node name="floor_shape" type="CollisionShape3D" parent="game/floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_rn4da")

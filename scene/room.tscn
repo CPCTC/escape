@@ -27,7 +27,6 @@ roughness = 0.8
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epgd5"]
 resource_name = "standardSurface1"
-albedo_color = Color(1, 1, 1, 1)
 roughness = 0.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kmnbk"]
@@ -1349,11 +1348,13 @@ mesh = SubResource("ArrayMesh_tgu0q")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="RootNode/Bulb_Hanger/Bulb"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0)
+transform = Transform3D(3.94946, -2.11758e-22, 0, 2.11758e-22, 3.94946, 0, 0, 0, 3.94946, 0, 0.0883679, 0)
 light_color = Color(0.588235, 0.290196, 0.0117647, 1)
+light_energy = 20.0
+light_indirect_energy = 20.0
 light_size = 1.0
-omni_range = 0.205
-omni_attenuation = 0.574349
+omni_range = 10.0
+omni_attenuation = 2.07053
 
 [node name="Cage" type="Node3D" parent="RootNode"]
 transform = Transform3D(0, 0, 0.589978, 0, 0.589978, 0, -0.589978, 0, 0, -0.114367, -0.00294582, 0.16592)
@@ -1439,8 +1440,9 @@ skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="RootNode/Candle/pasted__candle/Flame"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0196232, 0)
-light_color = Color(0.882353, 0.560784, 0.0941176, 1)
-light_energy = 0.05
+light_color = Color(0.882353, 0.494118, 0.0941176, 1)
+light_energy = 0.5
+omni_range = 10.0
 omni_shadow_mode = 0
 
 [node name="Candle2" type="MeshInstance3D" parent="RootNode/Candle/pasted__candle"]
@@ -1454,8 +1456,9 @@ skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="RootNode/Candle/pasted__candle/Flame1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115921, 0.0196232, 0.00115645)
-light_color = Color(0.882353, 0.560784, 0.0941176, 1)
-light_energy = 0.05
+light_color = Color(0.882353, 0.494118, 0.0941176, 1)
+light_energy = 0.5
+omni_range = 10.0
 omni_shadow_mode = 0
 
 [node name="polySurface4" type="MeshInstance3D" parent="RootNode/Candle/pasted__candle"]
