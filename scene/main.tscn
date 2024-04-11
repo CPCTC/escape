@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://566ubha4l67a"]
+[gd_scene load_steps=19 format=3 uid="uid://566ubha4l67a"]
 
 [ext_resource type="Script" path="res://scene/main_root.cs" id="1_iqmdx"]
 [ext_resource type="PackedScene" uid="uid://ddsj74hpt1kgb" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_physics_tac_glove.tscn" id="2_pxxag"]
@@ -25,6 +25,15 @@ size = Vector3(0.1, 0.1, 0.1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rn4da"]
 size = Vector3(7, 1, 20)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_i3jfb"]
+size = Vector3(2, 10, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v1vlb"]
+size = Vector3(2, 10, 3.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dlxqw"]
+size = Vector3(2, 10, 3)
+
 [node name="root" type="Node3D"]
 script = ExtResource("1_iqmdx")
 
@@ -32,7 +41,6 @@ script = ExtResource("1_iqmdx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.147488, 1.67674)
 
 [node name="xr_cam" type="XRCamera3D" parent="xr"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 fov = 141.258
 near = 0.01
 
@@ -106,3 +114,24 @@ collision_mask = 0
 [node name="floor_shape" type="CollisionShape3D" parent="game/floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_rn4da")
+
+[node name="guard" type="Node3D" parent="game"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.685438)
+
+[node name="guard_left" type="StaticBody3D" parent="game/guard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75436, 0, 0)
+
+[node name="guard_left_shape" type="CollisionShape3D" parent="game/guard/guard_left"]
+shape = SubResource("BoxShape3D_i3jfb")
+
+[node name="guard_right" type="StaticBody3D" parent="game/guard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.754, 0, -0.403966)
+
+[node name="guard_right_shape" type="CollisionShape3D" parent="game/guard/guard_right"]
+shape = SubResource("BoxShape3D_v1vlb")
+
+[node name="mid_guard" type="StaticBody3D" parent="game"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.87208)
+
+[node name="mid_guard_shape" type="CollisionShape3D" parent="game/mid_guard"]
+shape = SubResource("BoxShape3D_dlxqw")
