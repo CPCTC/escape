@@ -2,26 +2,27 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxox6nk7gvts7"
-path="res://.godot/imported/Floor.jpeg-ab93a813b1695d84d9aa090585f9487c.ctex"
+uid="uid://bkleemiunxpjp"
+path.s3tc="res://.godot/imported/gaffiti.png-738d8b62422acfa1661fbffd32c0e4dd.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://assets/Table.fbm/Floor.jpeg"
-dest_files=["res://.godot/imported/Floor.jpeg-ab93a813b1695d84d9aa090585f9487c.ctex"]
+source_file="res://assets/gaffiti.png"
+dest_files=["res://.godot/imported/gaffiti.png-738d8b62422acfa1661fbffd32c0e4dd.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +32,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

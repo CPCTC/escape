@@ -18,7 +18,7 @@ public partial class main_root : Node3D {
 
     // Must only be called during idle time.
     // See the signal connection menu -> `Advanced` -> `Deferred`
-    private void GameOver() {
+    private void GameOver(Node3D _) {
         GetNode("game").Free();
         GetNode("xr/xr_cam").AddChild(
             ResourceLoader.Load<PackedScene>("res://scene/gameover.tscn")

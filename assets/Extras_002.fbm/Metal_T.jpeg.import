@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbr74vie20r4c"
-path="res://.godot/imported/Ladder_T.jpeg-d49b087cdc6be8e258a45ec31243416d.ctex"
+uid="uid://b3wvc73qoqmi4"
+path="res://.godot/imported/Metal_T.jpeg-d7a97b21f36e782b1987f13f59960cc8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Table.fbm/Ladder_T.jpeg"
-dest_files=["res://.godot/imported/Ladder_T.jpeg-d49b087cdc6be8e258a45ec31243416d.ctex"]
+source_file="res://assets/Extras_002.fbm/Metal_T.jpeg"
+dest_files=["res://.godot/imported/Metal_T.jpeg-d7a97b21f36e782b1987f13f59960cc8.ctex"]
 
 [params]
 

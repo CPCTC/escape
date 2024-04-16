@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c785c087mmk"
-path.s3tc="res://.godot/imported/gaffiti_test.png-5d1404d9cb50950ba701a8400f45abf9.s3tc.ctex"
+uid="uid://dl6kly2wpshs7"
+path.s3tc="res://.godot/imported/Extras_002-6275485254f21289d69e32b97c0682fd_Metal_T.jpg-3c3072e460f5d62f53465699aa748597.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://assets/gaffiti_test.png"
-dest_files=["res://.godot/imported/gaffiti_test.png-5d1404d9cb50950ba701a8400f45abf9.s3tc.ctex"]
+source_file="res://assets/Extras_002-6275485254f21289d69e32b97c0682fd_Metal_T.jpg"
+dest_files=["res://.godot/imported/Extras_002-6275485254f21289d69e32b97c0682fd_Metal_T.jpg-3c3072e460f5d62f53465699aa748597.s3tc.ctex"]
 
 [params]
 

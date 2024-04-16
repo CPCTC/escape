@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjk6kbe78qtfx"
-path="res://.godot/imported/Wall_T.jpeg-ccbfe9fc46d156810e8571eafdb879d1.ctex"
+uid="uid://c0rh82m3p5c8j"
+path="res://.godot/imported/wood_Pad_Lock_T.jpeg-2430a0b92f650cf316544fff0db656c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Table.fbm/Wall_T.jpeg"
-dest_files=["res://.godot/imported/Wall_T.jpeg-ccbfe9fc46d156810e8571eafdb879d1.ctex"]
+source_file="res://assets/Extras_002.fbm/wood_Pad_Lock_T.jpeg"
+dest_files=["res://.godot/imported/wood_Pad_Lock_T.jpeg-2430a0b92f650cf316544fff0db656c7.ctex"]
 
 [params]
 

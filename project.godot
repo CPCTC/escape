@@ -37,6 +37,15 @@ import/blender/enabled=false
 3d_physics/layer_3="held"
 3d_physics/layer_4="hand"
 3d_physics/layer_5="ground"
+3d_physics/layer_6="bulb"
+3d_physics/layer_7="cube"
+3d_physics/layer_8="axe-key"
+3d_physics/layer_9="key-box"
+3d_physics/layer_10="ladder"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 
 [xr]
 
